@@ -1,4 +1,4 @@
-# CensurDNS
+# Censurf̶r̶i̶DNS
 
 git clone --recurse-submodules ...
 
