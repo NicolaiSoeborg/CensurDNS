@@ -3,7 +3,7 @@ from typing import *
 
 from fastapi import FastAPI, status, Depends, Query, Request, Response
 from fastapi.encoders import jsonable_encoder
-from fastapi.responses import HTMLResponse, PlainTextResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse
 
 from pydantic import BaseModel, Field, BeforeValidator, Base64Str
 from pydantic.networks import IPv4Address, IPv6Address
@@ -151,8 +151,9 @@ def get_record_val(data: Record) -> str | dict:
 
 @app.get("/", response_class=HTMLResponse)
 def read_root(response: Response):
-    response.status_code = status.HTTP_201_CREATED
-    return """<html>HELLO</html>"""
+    #response.status_code = status.HTTP_201_CREATED
+    #return """<html>HELLO</html>"""
+    return RedirectResponse("https://pyjam.as/portal")
 
 @app.put("/dns/", response_class=PlainTextResponse)
 def update_record(data: Record, db = Depends(get_db)):
