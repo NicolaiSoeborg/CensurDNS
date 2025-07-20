@@ -1,0 +1,12 @@
+. {
+	debug
+	bind eth0
+
+	metadata  # needed for rrl to fully work
+	rrl {
+		responses-per-second 30
+		slip-ratio 2
+	}
+
+	sqlite records.db
+}
