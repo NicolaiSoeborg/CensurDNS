@@ -28,7 +28,7 @@ func defaultAns(w dns.ResponseWriter, r *dns.Msg, qName string) (int, error) {
     }
     m.Answer = append(m.Answer, rr)
 
-    rr, err := dns.NewRR(fmt.Sprintf("%s 300 IN AAAA 2a01:4f8:1c0c:6ab1::1", qName))
+    rr, err = dns.NewRR(fmt.Sprintf("%s 300 IN AAAA 2a01:4f8:1c0c:6ab1::1", qName))
     if err != nil {
            panic(err)
     }
